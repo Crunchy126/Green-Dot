@@ -34,7 +34,7 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 //   NEO_RGBW    Pixels are wired for RGBW bitstream (NeoPixel RGBW products)
 
 int counter = 0;
-
+int counter2 = 5;
 
 // setup() function -- runs once at startup --------------------------------
 
@@ -72,12 +72,20 @@ void loop() {
   // here I assign the LED at location "counter" to be green
   strip.setPixelColor(counter, green);
 
+  strip.setPixelColor(counter2, green);
+
   //here i send the data to the pixels
   strip.show();
 
+  
+
   // here I keep track of the count variable that indicated the green LED location
   counter++;
+  counter2++;
   if(counter >= 10) counter = 0;
+  if(counter2 >=10) counter2 = 0;
+  
   Serial.println(counter);
-  delay(500);
+  delay(200);
+  
 }
